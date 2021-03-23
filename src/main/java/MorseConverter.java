@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class MorseConverter {
     Scanner sc = new Scanner(System.in);
     private String numberToChange;
@@ -22,9 +23,10 @@ public class MorseConverter {
         numberToChange = sc.nextLine();
     }
 
-    public void translateToMorse() {
+    public void translateToMorse() throws Exception {
         for (int i = 0; i < numberToChange.length(); i++) {
-            for (short j = 0; j < numbers.length; j++) {
+//TODO sprawdzenie czy litery
+               for (short j = 0; j < numbers.length; j++) {
                if (numberToChange.charAt(i) == numbers[j]) {
                     translated += morseLetters[j];
                     String result[] = {translated};
