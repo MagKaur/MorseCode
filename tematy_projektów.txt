@@ -1,0 +1,19 @@
+1. Szkolenia pracowników.
+2. Urlopy pracowników.
+3. Benefity pracowników.
+4. Wynagradzania pracowników.
+5. Zatrudnianie/zwalnianie pracowników.
+6. Zarządzanie majątkiem stałym.
+7. Zarządzanie asortymentem sklepu.
+8. Zarządzanie bazą klientów sklepu.
+9. Zarządanie stratami sklepu.
+10. Zarządanie danymi sklepu (godziny otwarcia, dni wolne itp.).
+11. Logowanie i wylogowanie z banku.
+12. Wykonanie przelewu.
+13. Wniosek - kredyt hipoteczny.
+14. Wniosek - kredyt konsolidacyjny.
+15. Wniosek - kredyt na zakup samochodu.
+16. Wniosek - lokata bankowa.
+17. Biuro nieruchomości - wyszukiwarka ofert.
+18. Rezerwacja hotelu - wyszukiwarka ofert.
+
