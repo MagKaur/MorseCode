@@ -1,42 +1,62 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
 
 public class MorseConverter {
-    Scanner sc = new Scanner(System.in);
     private String numberToChange;
-    private String translated;
-    private String morseCode;
-
+    private String translated = "";
+    private Boolean komunikat = false;
 
     char[] numbers = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
     String[] morseLetters = {". ___ ___ ___ ___", ". . ___ ___ ___", ". . . ___ ___", ". . . . ___", ". . . . .", "___ . . . .", "___ ___ . . .",
             "___ ___ ___ . .", "___ ___ ___ ___ .", "___ ___ ___ ___ ___"};
 
-    public MorseConverter(String textToChange, String translatedText, String morseCode) {
-        this.numberToChange = textToChange;
-        this.translated = translatedText;
-        this.morseCode = morseCode;
-    }
-    public void getNumber() {
-        System.out.println("Enter numbers: ");
-        numberToChange = sc.nextLine();
+    //konstruktor
+    public MorseConverter(String text)
+    {
+        this.numberToChange = text;
     }
 
-    public void translateToMorse() throws Exception {
-        for (int i = 0; i < numberToChange.length(); i++) {
-//TODO sprawdzenie czy litery
-               for (short j = 0; j < numbers.length; j++) {
-               if (numberToChange.charAt(i) == numbers[j]) {
-                    translated += morseLetters[j];
-                    String result[] = {translated};
-                    morseCode = Arrays.toString(result);
-                }
+    //zwraca index litery z tablicy numbers
+    private int findIndex(char letter)
+    {
+        for (int i = 0; i < this.numbers.length; i++)
+        {
+            //lecimy po całej tablicy numbers
+            if(letter == this.numbers[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void translateToMorse()
+    {
+        //lecimy po całym tekście użytkownika
+        for(int i = 0; i < this.numberToChange.length(); i++)
+        {
+            if(this.findIndex(this.numberToChange.charAt(i)) > -1)
+            {
+                this.translated += this.morseLetters[this.findIndex(this.numberToChange.charAt(i))];
+                this.translated += "   ";
+            }
+            else
+            {
+                this.komunikat = true;
             }
         }
     }
-    public void show (){
-        System.out.println(morseCode);
+
+    //ponieważ zmienna transtalted jest prywatna
+    public String getTranslated() {
+        return translated;
+    }
+
+    public void show() {
+        if(this.komunikat) {
+            System.out.println("Można przetłumaczyć jedynie cyfry!");
+            System.out.println("");
+        }
+        System.out.println("Przetłumaczone cyfry: ");
+        System.out.println(this.getTranslated());
     }
 }
 
