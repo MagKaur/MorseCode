@@ -1,8 +1,9 @@
-
 public class MorseConverter {
     private String numberToChange;
     private String translated = "";
     private Boolean komunikat = false;
+
+    private String privateString = null;
 
     char[] numbers = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
     String[] morseLetters = {". ___ ___ ___ ___", ". . ___ ___ ___", ". . . ___ ___", ". . . . ___", ". . . . .", "___ . . . .", "___ ___ . . .",
@@ -33,10 +34,11 @@ public class MorseConverter {
         //lecimy po całym tekście użytkownika
         for(int i = 0; i < this.numberToChange.length(); i++)
         {
+            /*var index = this.findIndex(this.numberToChange.charAt(i));*/
             if(this.findIndex(this.numberToChange.charAt(i)) > -1)
             {
                 this.translated += this.morseLetters[this.findIndex(this.numberToChange.charAt(i))];
-                this.translated += "   ";
+                /*this.translated += "   ";*/
             }
             else
             {
@@ -48,6 +50,11 @@ public class MorseConverter {
     //ponieważ zmienna transtalted jest prywatna
     public String getTranslated() {
         return translated;
+    }
+
+    public Boolean getKomunikat()
+    {
+        return komunikat;
     }
 
     public void show() {
